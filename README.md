@@ -1,2 +1,2 @@
 # QScoreboard
-A basic scoreboard plugin using NMS
+A basic scoreboard plugin using NMS and bukkit api
