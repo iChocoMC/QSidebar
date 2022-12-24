@@ -1,0 +1,13 @@
+sidebar:
+  title: "&e&lYour Server"
+  lines:
+    - " &e&lNAME: &f%player_displayname%"
+    - " &e&lPING: &f%player_ping%"
+    - ""
+    - " &e&lNEWS:"
+    - " &8* &fFix a bug"
+    - " &8* &fOptimized the hub"
+
+update-sidebar:
+  enable: true
+  seconds: 10
