@@ -1,9 +1,5 @@
 package qscoreboard.types.sidebar;
 
-import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
 import qscoreboard.QScoreboard;
 
 public class UpdateThread extends Thread {
@@ -19,15 +15,7 @@ public class UpdateThread extends Thread {
     @Override
     public void run() {
         while (true) {
-            method.SCOREBOARD.unregisterObjective(method.objective);
-            method.objective = null;
-
-            method.objective = method.startObjective();
-
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                method.setScoreboard(((CraftPlayer)player).getHandle().playerConnection, player);
-            }
-
+            method.runnableTask();
             try {
                 sleep(milis);
             } catch (InterruptedException e) {

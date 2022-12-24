@@ -16,7 +16,7 @@ public class PlayerJoin implements Listener {
     private final ScoreboardUtil scoreboard;
 
     public PlayerJoin() {
-        if (QScoreboard.getConfiguration().getBoolean("update-sidebar")) {
+        if (QScoreboard.getConfiguration().getBoolean("update-sidebar.enable")) {
             scoreboard = new Update();
             return;
         }

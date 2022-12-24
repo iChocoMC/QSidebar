@@ -16,8 +16,8 @@ public abstract class SideBar implements ScoreboardUtil {
 
     protected final String[] LINES;
     protected final FileConfiguration CONFIG;
-    public final Scoreboard SCOREBOARD;
-    public ScoreboardObjective objective;
+    protected final Scoreboard SCOREBOARD;
+    protected ScoreboardObjective objective;
 
     public SideBar() {
         CONFIG = QScoreboard.getConfiguration();
