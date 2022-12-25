@@ -5,27 +5,33 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import qscoreboard.listeners.PlayerJoin;
+import qscoreboard.types.sidebar.SidebarUpdate;
 import qscoreboard.utils.PlaceholderUtil;
+import qscoreboard.utils.RunnableUtil;
+import qscoreboard.utils.ScoreboardUtil;
 
 public class QScoreboard extends JavaPlugin {
-
-    private static FileConfiguration config;
 
     @Override
     public void onEnable() {
 
         this.saveDefaultConfig();
-        config = getConfig();
 
-        PluginManager pluginManager = this.getServer().getPluginManager();
+        startFeatures(this, this.getConfig());
+    }
+
+    private void startFeatures(QScoreboard plugin, FileConfiguration config) {
+
+        PluginManager pluginManager = plugin.getServer().getPluginManager();
+        ScoreboardUtil sidebar = new SidebarUpdate(config);
 
         PlaceholderUtil.startUtil(pluginManager);
 
-        pluginManager.registerEvents(new PlayerJoin(), this);
-        
-    }
+        if (config.getBoolean("update-sidebar.enable")) {
+            int ticks = config.getInt("update-sidebar.seconds") * 20;
+            plugin.getServer().getScheduler().runTaskTimer(plugin, new RunnableUtil(sidebar), ticks, ticks);
+        }
 
-    public static FileConfiguration getConfiguration() {
-        return config;
+        pluginManager.registerEvents(new PlayerJoin(sidebar), plugin);
     }
 }

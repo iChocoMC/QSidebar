@@ -6,8 +6,9 @@ import org.bukkit.plugin.PluginManager;
 import me.clip.placeholderapi.PlaceholderAPI;
 
 public abstract class PlaceholderUtil {
+
     public static PlaceholderUtil util;
-    
+
     public static String setPlaceholders(Player player, String line) {
         return util.transform(player, line);
     }
@@ -25,6 +26,7 @@ public abstract class PlaceholderUtil {
                     return line;
                 }
             };
+
             return;
         }
 
