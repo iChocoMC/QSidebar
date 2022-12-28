@@ -1,13 +1,13 @@
 update-sidebar:
   enable: true
-  seconds: 10
+  seconds: 5
 
 sidebar:
-  title: "&e&lYour Server"
+  title: "&e&lYour Server" #Don't support placeholderapi in the title
   lines:
     - " &e&lNAME: &f%player_displayname%"
     - " &e&lPING: &f%player_ping%"
     - ""
     - " &e&lNEWS:"
     - " &8* &fFix a bug"
-    - " &8* &fOptimized the hub"
+    - " &8* &fReduced cpu usage"

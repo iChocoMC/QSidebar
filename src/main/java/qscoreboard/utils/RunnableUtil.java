@@ -1,10 +1,12 @@
 package qscoreboard.utils;
 
+import qscoreboard.scoreboards.TypeScoreboard;
+
 public class RunnableUtil implements Runnable {
 
-    private final ScoreboardUtil util;
+    private final TypeScoreboard util;
 
-    public RunnableUtil(ScoreboardUtil util) {
+    public RunnableUtil(TypeScoreboard util) {
         this.util = util;
     }
 

@@ -14,6 +14,7 @@ public abstract class PlaceholderUtil {
     }
 
     public static void startUtil(PluginManager pluginManager) {
+
         if (!pluginManager.isPluginEnabled("PlaceHolderAPI")) {
 
             System.out.println(
@@ -26,7 +27,6 @@ public abstract class PlaceholderUtil {
                     return line;
                 }
             };
-
             return;
         }
 
