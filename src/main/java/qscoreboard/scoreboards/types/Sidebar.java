@@ -11,7 +11,7 @@ import net.minecraft.server.v1_8_R3.IScoreboardCriteria;
 import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardScore;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
 import net.minecraft.server.v1_8_R3.ScoreboardObjective;
-import net.minecraft.server.v1_8_R3.ScoreboardScore;
+
 import qscoreboard.scoreboards.TypeScoreboard;
 import qscoreboard.utils.PlaceholderUtil;
 
@@ -52,6 +52,7 @@ public class Sidebar extends TypeScoreboard {
 
     @Override
     public void join(PlayerConnection connection, Player player) {
+        ((CraftPlayer)player).getHandle().setScore(LENGTH);
         setScoreboard(connection, player, LENGTH);
     }
 
@@ -71,7 +72,7 @@ public class Sidebar extends TypeScoreboard {
     
     private void setScoreboard(PlayerConnection connection, Player player, int count) {
         for (String line : LINES) {
-            ScoreboardScore score = new ScoreboardScore(SCOREBOARD, objectives[0], PlaceholderUtil.setPlaceholders(player, line));
+            Score score = new Score(SCOREBOARD, objectives[0], PlaceholderUtil.setPlaceholders(player, line));
             score.setScore(--count);
             connection.networkManager.handle(new PacketPlayOutScoreboardScore(score));
         }
