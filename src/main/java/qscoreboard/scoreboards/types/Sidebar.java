@@ -52,7 +52,6 @@ public class Sidebar extends TypeScoreboard {
 
     @Override
     public void join(PlayerConnection connection, Player player) {
-        ((CraftPlayer)player).getHandle().setScore(LENGTH);
         setScoreboard(connection, player, LENGTH);
     }
 
