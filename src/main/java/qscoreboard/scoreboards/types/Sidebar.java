@@ -17,8 +17,8 @@ import qscoreboard.scoreboards.TypeScoreboard;
 public class Sidebar extends TypeScoreboard {
 
     private Objective objective;
-    private final Score SCORE;
 
+    private final Score SCORE;
     private final String TITLE;
     private final int LENGTH;
 

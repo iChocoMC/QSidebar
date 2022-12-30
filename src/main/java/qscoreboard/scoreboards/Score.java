@@ -8,6 +8,7 @@ import net.minecraft.server.v1_8_R3.PlayerConnection;
 import net.minecraft.server.v1_8_R3.Scoreboard;
 import net.minecraft.server.v1_8_R3.ScoreboardObjective;
 import net.minecraft.server.v1_8_R3.ScoreboardScore;
+import qscoreboard.utils.PlaceholderUtil;
 
 public class Score extends ScoreboardScore {
 
@@ -39,7 +40,7 @@ public class Score extends ScoreboardScore {
     public void setLine(PlayerConnection connection, Player player, int count) {
         for (String line : LINES) {
             score = --count;
-            playerName = PlaceholderAPI.setPlaceholders(player, line);
+            playerName = PlaceholderUtil.setPlaceholders(player, line);
             connection.sendPacket(new PacketPlayOutScoreboardScore(this));
         }
     }
