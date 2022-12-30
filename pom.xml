@@ -9,7 +9,7 @@
     <!-- Plugin Information -->
     <name>QScoreboard</name>
     <description>A basic scoreboard plugin </description>
-    <version>4.0</version>
+    <version>5.0</version>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

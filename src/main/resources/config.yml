@@ -11,3 +11,6 @@ sidebar:
     - " &e&lNEWS:"
     - " &8* &fFix a bug"
     - " &8* &fReduced cpu usage"
+
+belowname:
+  format: "H"
