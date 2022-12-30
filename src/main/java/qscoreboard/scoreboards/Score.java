@@ -1,4 +1,4 @@
-package qscoreboard.scoreboards.types;
+package qscoreboard.scoreboards;
 
 import net.minecraft.server.v1_8_R3.Scoreboard;
 import net.minecraft.server.v1_8_R3.ScoreboardObjective;
@@ -8,8 +8,9 @@ public class Score extends ScoreboardScore {
 
     private int score;
 
-    public Score(Scoreboard arg0, ScoreboardObjective arg1, String arg2) {
-        super(arg0, arg1, arg2);
+    public Score(Scoreboard scoreboard, ScoreboardObjective objective, String line, int score) {
+        super(scoreboard, objective, line);
+        this.score = score;
     }
     
     @Override

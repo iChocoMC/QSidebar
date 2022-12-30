@@ -12,13 +12,15 @@ import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardScore;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
 import net.minecraft.server.v1_8_R3.ScoreboardObjective;
 
+import qscoreboard.scoreboards.Objective;
+import qscoreboard.scoreboards.Score;
 import qscoreboard.scoreboards.TypeScoreboard;
+
 import qscoreboard.utils.PlaceholderUtil;
 
 public class Sidebar extends TypeScoreboard {
 
-    private ScoreboardObjective[] objectives = new ScoreboardObjective[3];
-    private boolean change = false;
+    private ScoreboardObjective objective;
 
     private final String[] LINES;
     private final String TITLE;
@@ -31,20 +33,9 @@ public class Sidebar extends TypeScoreboard {
         LINES = createLines(config);
         LENGTH = LINES.length;
 
-        if (update) { 
-            objectives[1] = createObjective("sidebar2");
-            objectives[2] = createObjective("sidebar3");
-        } else {
-            objectives = new ScoreboardObjective[1];
-        }
-
-        objectives[0] = createObjective("sidebar");
-        this.SCOREBOARD.setDisplaySlot(1, objectives[0]);
-
+        createObjective();
         try {
             this.SCOREBOARD.registerObjective("sidebar", IScoreboardCriteria.b);
-            this.SCOREBOARD.registerObjective("sidebar2", IScoreboardCriteria.b);
-            this.SCOREBOARD.registerObjective("sidebar3", IScoreboardCriteria.b);
         } catch (Exception e) {
             System.out.println("The sidebar already exists, so the plugin will use it");
         }
@@ -57,13 +48,7 @@ public class Sidebar extends TypeScoreboard {
 
     @Override
     public void runnableTask() {
-        if ( (change = !change) ) {
-            objectives[0] = objectives[1];
-            this.SCOREBOARD.setDisplaySlot(1, objectives[1]);
-        } else {
-            objectives[0] = objectives[2];
-            this.SCOREBOARD.setDisplaySlot(1, objectives[2]);
-        }
+        createObjective();
         for (Player player : Bukkit.getOnlinePlayers()) {
             setScoreboard(((CraftPlayer)player).getHandle().playerConnection, player, LENGTH); 
         }
@@ -71,16 +56,14 @@ public class Sidebar extends TypeScoreboard {
     
     private void setScoreboard(PlayerConnection connection, Player player, int count) {
         for (String line : LINES) {
-            Score score = new Score(SCOREBOARD, objectives[0], PlaceholderUtil.setPlaceholders(player, line));
-            score.setScore(--count);
-            connection.networkManager.handle(new PacketPlayOutScoreboardScore(score));
+            connection.networkManager.handle(new PacketPlayOutScoreboardScore(
+                new Score(SCOREBOARD, objective, PlaceholderUtil.setPlaceholders(player, line), --count)));
         }
     }
 
-    private ScoreboardObjective createObjective(String sidebar) {
-        ScoreboardObjective objective = new ScoreboardObjective(this.SCOREBOARD, sidebar, IScoreboardCriteria.b);
-        objective.setDisplayName(TITLE);
-        return objective;
+    private void createObjective() {
+        objective = new Objective(SCOREBOARD, "sidebar", IScoreboardCriteria.b, TITLE);
+        SCOREBOARD.setDisplaySlot(1, objective);
     }
 
     private String[] createLines(FileConfiguration config) {
