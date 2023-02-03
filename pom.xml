@@ -2,14 +2,14 @@
     <modelVersion>4.0.0</modelVersion>
     
     <!-- Project information -->
-    <groupId>qscoreboard.QScoreboard</groupId>
+    <groupId>com.github.ichocomc</groupId>
     <artifactId>QScoreboard</artifactId>
     <packaging>jar</packaging>
 
     <!-- Plugin Information -->
     <name>QScoreboard</name>
     <description>A basic scoreboard plugin </description>
-    <version>5.0</version>
+    <version>6.0</version>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
    <!-- External repositories -->
     <repositories>
         <repository>
-            <id>spigot-repo</id>
+            <id>nms-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>

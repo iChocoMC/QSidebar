@@ -1,6 +1,6 @@
 name: QScoreboard
 description: A basic scoreboard plugin
-author: iChocoMC_
-main: qscoreboard.QScoreboard
-version: 5.0
+author: iChocoMC
+main: ichocomc.qscoreboard.QScoreboard
+version: 6.0
 softdepend: [PlaceholderAPI]

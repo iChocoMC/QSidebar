@@ -1,13 +1,29 @@
-update-sidebar:
-  enable: true
+update:
+  enable: true # false = the sidebar only is updated on player join
   seconds: 5
 
-sidebar:
-  title: "&e&lYour Server" #Don't support placeholderapi in the title
-  lines:
-    - " &e&lNAME: &f%player_displayname%"
-    - " &e&lPING: &f%player_ping%"
-    - ""
-    - " &e&lNEWS:"
-    - " &8* &fFix a bug"
-    - " &8* &fReduced cpu usage"
+title: "&e&lYou server" # Don't support placeholder in title for HEAVY reduce cpu usage
+lines:
+  - "&bName: &f%qplayer_name%"
+  - "&bPing: &f%qplayer_ping%ms"
+  - ""
+  - "&bQScoreboard v6.0:"
+  - "  &fAdd new features"
+  - "  &fCode cleanup"
+  - "  &fRecode"
+
+placeholder-api-support: true
+
+# This are lightweight placeholders for don't download a extension in placeholderapi
+#
+# qplayer:
+#    %qplayer_name% : player name
+#    %qplayer_displayname% : custom playername
+#    %qplayer_ping% : player ping
+#
+# qserver:
+#    %qserver_online% : amount of player online
+
+enable-custom-placeholders:
+  qplayer: true
+  qserver: false
