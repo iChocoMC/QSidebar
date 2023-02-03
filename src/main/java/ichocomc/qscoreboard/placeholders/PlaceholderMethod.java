@@ -18,7 +18,7 @@ public class PlaceholderMethod {
 
     public void startMethod(PluginManager pluginManager, FileConfiguration config) {
         if (!pluginManager.isPluginEnabled("PlaceHolderAPI") 
-            && !config.getBoolean("placeholder-api-support")) {
+            || !config.getBoolean("placeholder-api-support")) {
 
             method = this;
             return;
