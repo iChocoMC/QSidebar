@@ -4,7 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 
-import ichocomc.qscoreboard.placeholders.methods.WithPlaceholders;
+import ichocomc.qscoreboard.placeholders.methods.WithPlaceholdersMethod;
 import ichocomc.qscoreboard.placeholders.types.QPlayer;
 import ichocomc.qscoreboard.placeholders.types.QServer;
 
@@ -33,7 +33,7 @@ public class PlaceholderMethod {
             new QPlayer().register();
         }
 
-        method = new WithPlaceholders();
+        method = new WithPlaceholdersMethod();
     }
 
     public String transform(Player player, String text) {

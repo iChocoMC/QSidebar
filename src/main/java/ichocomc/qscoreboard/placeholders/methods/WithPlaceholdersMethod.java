@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import ichocomc.qscoreboard.placeholders.PlaceholderMethod;
 import me.clip.placeholderapi.PlaceholderAPI;
 
-public class WithPlaceholders extends PlaceholderMethod {
+public class WithPlaceholdersMethod extends PlaceholderMethod {
 
     @Override
     public String transform(Player player, String text) {

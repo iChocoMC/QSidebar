@@ -16,12 +16,12 @@ import net.minecraft.server.v1_8_R3.Scoreboard;
 import net.minecraft.server.v1_8_R3.ScoreboardObjective;
 import net.minecraft.server.v1_8_R3.ScoreboardScore;
 
-public class StartSidebar {
+public class StartSidebarUtil {
 
     private final Map<String, Integer> noPlaceholderLines = new HashMap<>();
     private int count;
 
-    public StartSidebar(Scoreboard serverScoreboard) {
+    public StartSidebarUtil(Scoreboard serverScoreboard) {
         try {
             serverScoreboard.registerObjective("sidebar", IScoreboardCriteria.b);
         } catch (Exception e) {

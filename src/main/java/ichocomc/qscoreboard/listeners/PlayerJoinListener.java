@@ -7,11 +7,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import ichocomc.qscoreboard.sidebar.Sidebar;
 
-public class PlayerJoin implements Listener {
+public class PlayerJoinListener implements Listener {
 
     private final Sidebar sidebar;
 
-    public PlayerJoin(Sidebar sidebar) {
+    public PlayerJoinListener(Sidebar sidebar) {
         this.sidebar = sidebar;
     }
 
