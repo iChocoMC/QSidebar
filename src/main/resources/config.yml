@@ -1,0 +1,42 @@
+lines-update:
+  enable: true # false = the sidebar only is updated on player join
+  seconds: 5
+
+animated-title: # Less resource usage
+  enable: true
+  seconds: 2
+  lines:
+    - "&e&lYou server"
+    - "&f&lY&e&lou server"
+    - "&f&lYo&e&lu server"
+    - "&f&lYou&e&l server"
+    - "&f&lYou s&e&lerver"
+    - "&f&lYou se&e&lrver"
+    - "&f&lYou ser&e&lver"
+    - "&f&lYou serv&e&ler"
+    - "&f&lYou serve&e&lr"
+    - "&f&lYou server"
+
+title: "&e&lYou server" # Don't support placeholder in title
+lines:
+  - "&bName: &f%qplayer_name%"
+  - "&bPing: &f%qplayer_ping%ms"
+  - ""
+  - "&bQScoreboard v7.0:"
+  - "  &fAdd animated title"
+
+placeholder-api-support: true
+
+# Lightweight placeholders for don't download an extension in placeholderapi
+#
+# qplayer:
+#    %qplayer_name% : player name
+#    %qplayer_displayname% : custom playername
+#    %qplayer_ping% : player ping
+#
+# qserver:
+#    %qserver_online% : amount of player online
+
+enable-custom-placeholders:
+  qplayer: true
+  qserver: false

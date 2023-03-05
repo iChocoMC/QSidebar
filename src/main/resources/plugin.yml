@@ -1,0 +1,6 @@
+name: QSidebar
+description: A basic sidebar plugin
+author: iChocoMC
+main: com.github.ichocomc.qsidebar.QSidebar
+version: 7.0
+softdepend: [PlaceholderAPI]
