@@ -1,4 +1,8 @@
-# QScoreboard
-A basic scoreboard plugin using NMS and bukkit api
+# QSidebar
 
-You are free to use this code for public or commercial projects
+### A basic sidebar plugin with:
+    · Animated title
+    · PlaceholderApi support
+    · Custom placeholders
+    · Update every x time
+    · Use NMS
