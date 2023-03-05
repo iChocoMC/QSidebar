@@ -10,6 +10,7 @@ import com.github.ichocomc.qsidebar.placeholders.methods.WithPlaceholders;
 
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.MinecraftServer;
+import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardObjective;
 import net.minecraft.server.v1_8_R3.Scoreboard;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -35,7 +36,7 @@ public class Sidebar {
                 : new DefaultPlaceholder();
 
         SidebarTitle title = config.getBoolean("animated-title.enable")
-                ? new WithAnimation(config.getStringList("animated-title.lines"), plugin)
+                ? new WithAnimation(config.getStringList("animated-title.lines"), plugin, this)
                 : new DefaultTitle(config.getString("title"));
 
         SidebarObjective objective = new SidebarObjective(serverScoreboard, title);
@@ -56,6 +57,13 @@ public class Sidebar {
         serverScoreboard.setDisplaySlot(1, new SidebarObjective(serverScoreboard));
         for (EntityPlayer entityPlayer : onlinePlayers) {
             score.setLines(entityPlayer.playerConnection, entityPlayer.getBukkitEntity().getPlayer());
+        }
+    }
+
+    public void updateTitle() {
+        PacketPlayOutScoreboardObjective packet = new PacketPlayOutScoreboardObjective(new SidebarObjective(serverScoreboard), 2);
+        for (EntityPlayer entityPlayer : onlinePlayers) {
+            entityPlayer.playerConnection.sendPacket(packet);
         }
     }
 }
